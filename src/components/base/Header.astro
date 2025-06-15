@@ -1,61 +1,30 @@
 ---
-import ThemeSwitcher from "@components/base/ThemeSwitcher.astro";
-import { IoSearch } from "react-icons/io5";
-
 const { pathname } = Astro.url;
 
 const stickyHeader = true;
 
 const menu = [
-  {
-    name: "Home",
-    url: "/",
-  },
-  {
-    name: "About",
-    url: "/about",
-  },
-  {
-    name: "Docs",
-    url: "/docs",
-  },
-  {
-    name: "Blog",
-    url: "/blog",
-  },
-  {
-    name: "Recipes",
-    url: "/recipes",
-  },
-  {
-    name: "Poetry",
-    url: "/poetry",
-  },
-  {
-    name: "Index Cards",
-    url: "/index-cards",
-  },
-  {
-    name: "Authors",
-    url: "/authors",
-  },
-  {
-    name: "Portfolio",
-    url: "/portfolio",
-  },
+  { name: "Accueil", url: "/" },
+  { name: "À propos", url: "/about" },
+  { name: "Blog", url: "/blog" },
+  { name: "La méthode AIA", url: "/la-methode-aia" },
+  { name: "Ressources", url: "/ressources" },
+  { name: "Travailler avec moi", url: "https://TON-LIEN-SUITEDASH-TRAVAILLER", external: true },
 ];
+
+const espaceClientUrl = "https://acces.regisrolnin.com/";
 ---
 
 <header
   transition:persist
-  class={`container glass py-2 z-30 mb-4 lg:mt-4 lg:rounded-lg ${stickyHeader && "sticky top-0"}`}
+  class={`container glass border border-transparent bg-opacity-10 py-3 z-30 mb-4 lg:mt-4 lg:rounded-lg ${stickyHeader && "sticky top-0"}`}
 >
   <nav class="relative flex flex-wrap items-center justify-between">
-    <!-- navbar toggler -->
+    <!-- menu mobile toggle -->
     <input id="nav-toggle" type="checkbox" class="hidden" />
     <label
       for="nav-toggle"
-      class="order-0 cursor-pointer flex items-center md:hidden text-txt-p dark:text-darkmode-txt-p lg:order-1"
+      class="order-0 cursor-pointer flex items-center md:hidden text-light-cream lg:order-1"
     >
       <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
         <title>Menu Open</title>
@@ -63,24 +32,24 @@ const menu = [
       </svg>
       <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
         <title>Menu Close</title>
-        <polygon
-          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-          transform="rotate(45 10 10)"></polygon>
+        <polygon points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2" transform="rotate(45 10 10)"></polygon>
       </svg>
     </label>
-    <!-- /navbar toggler -->
+
+    <!-- menu -->
     <ul
       id="nav-menu"
-      class="text-center lg:text-left order-3 hidden w-full pb-6 md:order-1 md:flex md:w-auto md:space-x-2 md:pb-0 lg:space-x-4"
+      class="text-center lg:text-left order-3 hidden w-full pb-6 md:order-1 md:flex md:w-auto md:space-x-4 md:pb-0 lg:space-x-6"
     >
       {
         menu.map((item) => (
-          <li class="">
+          <li>
             <a
               href={item.url}
-              class={`block p-2 font-secondary font-semibold text-txt-p transition dark:text-darkmode-txt-p lg:px-2 lg:py-3 ${
-                (pathname === `${item.url}/` || pathname === item.url) &&
-                "active"
+              target={item.external ? "_blank" : "_self"}
+              rel={item.external ? "noopener noreferrer" : ""}
+              class={`block px-4 py-3 text-lg font-secondary font-semibold text-light-cream transition hover:text-accent-copper ${
+                (pathname === `${item.url}/` || pathname === item.url) && "text-accent-copper"
               }`}
             >
               {item.name}
@@ -89,15 +58,19 @@ const menu = [
         ))
       }
     </ul>
-    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
+
+    <!-- espace client bouton -->
+    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0 space-x-6">
+      <div class="hidden md:block h-5 w-px bg-accent-copper-light opacity-50"></div>
       <a
-        class="mr-4 inline-block border-border text-xl text-txt-p dark:border-darkmode-border dark:text-darkmode-txt-p"
-        href="/search"
-        aria-label="search"
-      >
-        <IoSearch />
-      </a>
-      <ThemeSwitcher />
+  href={espaceClientUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="btn-blue-secondary btn-medium"
+>
+  Espace client
+</a>
+
     </div>
   </nav>
 </header>

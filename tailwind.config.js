@@ -10,9 +10,9 @@ let h3 = h4 * font_scale;
 let h2 = h3 * font_scale;
 let h1 = h2 * font_scale;
 
-let fontPrimary = "serif";
-let fontPrimaryType = "serif";
-let fontSecondary = "open sans";
+let fontPrimary = "Montserrat Alternates";
+let fontPrimaryType = "sans-serif";
+let fontSecondary = "Jost";
 let fontSecondaryType = "sans-serif";
 
 fontPrimary = fontPrimary
@@ -66,6 +66,13 @@ module.exports = {
           },
           border: "#444",
         },
+        // Added custom colors
+        'primary-dark-blue': '#051334',
+        'primary-dark-navy': '#080f1f',
+        'primary-purple': '#330523',
+        'accent-copper': '#eaa172',
+        'accent-copper-light': '#e2a882',
+        'light-cream': '#f5dfcf',
       },
       minHeight: {
         static_sidemenu: "calc(100vh - 6rem)",
@@ -88,6 +95,7 @@ module.exports = {
       fontFamily: {
         primary: [fontPrimary, fontPrimaryType],
         secondary: [fontSecondary, fontSecondaryType],
+        playfair: ["Playfair Display", "serif"], // Added Playfair Display
       },
       spacing: {
         "1/2": "50%",

@@ -6,22 +6,13 @@ export type GenericEntry = CollectionEntry<CollectionKey>;
 export type AboutEntry = CollectionEntry<"about">;
 export type AuthorsEntry = CollectionEntry<"authors">;
 export type BlogEntry = CollectionEntry<"blog">;
-export type DocsEntry = CollectionEntry<"docs">;
 export type HomeEntry = CollectionEntry<"home">;
-export type IndexCardsEntry = CollectionEntry<"indexCards">;
-export type PoetryEntry = CollectionEntry<"poetry">;
-export type PortfolioEntry = CollectionEntry<"portfolio">;
-export type RecipesEntry = CollectionEntry<"recipes">;
 export type TermsEntry = CollectionEntry<"terms">;
 
 export type SearchableEntry =
   | AboutEntry
   | AuthorsEntry
   | BlogEntry
-  | DocsEntry
-  | PoetryEntry
-  | PortfolioEntry
-  | RecipesEntry
   | TermsEntry;
 
 export type SocialLinks = {
@@ -35,7 +26,7 @@ export type SocialLinks = {
   tiktok?: string;
   website?: string;
   youtube?: string;
-}
+};
 
 export type EntryReference = {
   id: string;
@@ -53,7 +44,7 @@ export type MenuItem = {
   children: MenuItem[];
 };
 
-// Define the type for menu items to created nested object
+// Define the type for menu items to create nested object
 export type MenuItemWithDraft = {
   title?: string;
   id: string;

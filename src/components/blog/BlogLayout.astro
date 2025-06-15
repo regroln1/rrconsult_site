@@ -1,0 +1,38 @@
+---
+import BaseLayout from '@components/base/BaseLayout.astro';
+import { markdownify } from '@lib/textConverter';
+import Button from '@components/common/Button.astro';
+import type { BlogEntry } from '@/types';
+const { entries } = Astro.props;
+---
+
+<BaseLayout title="Blog" description="..." >
+  <section class="section">
+    <div class="container">
+      <h1 class="mb-8 text-center font-primary text-3xl">Blog</h1>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        { entries.map((entry: BlogEntry) => (
+          <article class="rounded-lg border border-gray-600 p-6 hover:shadow-lg transition">
+            { entry.image && <img src={entry.image} alt={entry.alt ?? ''} class="mb-4 rounded" />}
+            <h2 class="mb-2 font-primary text-xl">
+              <a href={entry.url} class="hover:text-accent-copper">
+                {markdownify(entry.title)}
+              </a>
+            </h2>
+            <p class="mb-4 text-light-cream line-clamp-3">
+              {markdownify(entry.excerpt)}
+            </p>
+            <Button
+              label="Lire l'article"
+              link={entry.url}
+              variant="secondary"
+              size="medium"
+              color="blue"
+            />
+          </article>
+        )) }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

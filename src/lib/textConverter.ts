@@ -12,9 +12,19 @@ export const slugify = (content: string) => {
 };
 
 // markdownify
-export const markdownify = (content: string, div?: boolean) => {
-  return div ? marked.parse(content) : marked.parseInline(content);
+// markdownify
+export const markdownify = (
+  content: string | undefined | null,
+  div?: boolean
+): string => {
+  if (!content || typeof content !== 'string') return '';
+  const parsed = div ? marked.parse(content) : marked.parseInline(content);
+  return typeof parsed === 'string' ? parsed : '';
 };
+
+
+
+
 
 // hyphen to space, uppercase only first letter in each word
 export const upperHumanize = (content: string) => {

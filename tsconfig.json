@@ -1,27 +1,28 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": ".",
     "target": "es2022",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "jsx": "preserve",
     "allowJs": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "jsx": "react",
     "isolatedModules": true,
     "incremental": true,
     "allowSyntheticDefaultImports": true,
-    "types": ["@astrojs/client"],
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
     "paths": {
-      "@assets/*": ["./src/assets/*"],
-      "@components/*": ["./src/components/*"],
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
       "@helpers/*": ["src/components/helpers/*"],
       "@lib/*": ["src/lib/*"],
       "@shortcodes/*": ["src/components/common/shortcodes/*"],
       "@types/*": ["src/types/*"],
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.astro"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }

@@ -1,9 +1,12 @@
 ---
-image: "@assets/astrogon-star.svg"
-imageAlt: Astrogon logo
-title: Astrogon
-content: A rapidly-customizable template for a blog, documentation, and more.
-button:
-  label: See the Code
-  link: https://github.com/astrogon/astrogon
+image: ""
+imageAlt: Régis Rolnin
+title: Accélérez la Croissance de Votre Entreprise avec la Méthode AIA™  Aligner, Attirer, Automatiser
+content: |
+  Méthode exclusive pour dirigeants de PME ambitieuses
+buttons:
+  - label: En savoir plus
+    link: /home-detail
+  - label: Réserver votre appel de découverte
+    link: https://TON-LIEN-CALENDLY-OU-AUTRE
 ---
