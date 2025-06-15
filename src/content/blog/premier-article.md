@@ -1,27 +1,30 @@
 ---
-layout: "@components/blog/ArticleLayout.astro"
-title: "Bienvenue sur le blog !"
-date: 2025-06-14
-excerpt: "Un article test pour vérifier que tout fonctionne bien."
-image: "/src/assets/blog/emmy-noether.jpg"
-imageAlt: "Image de test"
-description: "Voici un test d'article pour valider la mise en place du blog avec Astro."
+title: "Mon Premier Article"
+description: "Une introduction à mon blog personnel"
+date: 2025-06-15
+categories: ["personnel", "introduction"]
+tags: ["premier post", "bienvenue"]
+draft: false
 ---
 
-Bienvenue sur le **blog officiel** de Régis Rolnin !
+# Bienvenue sur mon Blog !
 
-Dans cet article test, nous allons vérifier que :
+Ceci est mon premier article sur mon nouveau site web personnel. Je suis ravi de partager mes pensées et expériences avec vous.
 
-- ✅ le layout s’affiche correctement
-- ✅ les métadonnées sont bien chargées
-- ✅ les styles sont appliqués
+## À Propos de ce Site
 
-> C’est une bonne base pour ajouter du vrai contenu ensuite.
+Ce site est construit avec Astro et utilise le template Astrogon. Il me permet de :
 
----
+- Partager mes articles de blog
+- Présenter mes projets
+- Documenter mes apprentissages
 
-Si tu vois cet article sur la page blog, **tout est prêt** pour rédiger sérieusement ✍️
+## Prochaines Étapes
 
----
+Dans les prochains articles, je prévois de parler de :
 
-Souhaites-tu que je te crée aussi le fichier `ArticleLayout.astro` maintenant pour que le rendu des articles fonctionne bien ?
+1. Mes projets en cours
+2. Mes découvertes techniques
+3. Mes réflexions personnelles
+
+Merci de votre visite et à bientôt pour de nouveaux contenus !
