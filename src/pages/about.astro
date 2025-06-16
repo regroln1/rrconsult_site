@@ -1,62 +1,9 @@
 ---
-import BaseLayout from "@components/base/BaseLayout.astro";
+import EntryLayout from "@components/about/EntryLayout.astro";
+import { getIndex } from "@lib/contentParser";
+import type { AboutEntry } from "@/types";
+
+const aboutEntry = (await getIndex("about")) as AboutEntry;
 ---
-<head>
-  <style>
-    html {
-      --bg-overlay-url: url("/assets/backgrounds/oiseau-hero.png");
-      --bg-overlay-opacity: 0.5;
-    }
-  </style>
-</head>
 
-<BaseLayout>
-  <section class="section">
-    <div class="container max-w-3xl text-lg space-y-10 leading-relaxed text-light-cream">
-
-      <h1>
-        À propos de Régis Rolnin
-      </h1>
-
-      <p>
-        Entrepreneur, consultant en croissance d’entreprise et passionné par l’IA et le digital.
-      </p>
-
-      <h2>
-        Mon parcours
-      </h2>
-
-      <p>
-        Après plusieurs années passées à accompagner des PME sur le terrain, j’ai développé la Méthode AIA™ pour aider les dirigeants ambitieux à propulser leur croissance en alliant stratégie, acquisition et automatisation.
-      </p>
-
-      <h2>
-        Ma mission
-      </h2>
-
-      <p>
-        Permettre à chaque entrepreneur de structurer son business pour scaler sereinement grâce à des méthodes éprouvées et des outils intelligents.
-      </p>
-
-      <h2>
-        Pourquoi ce site ?
-      </h2>
-
-      <p>
-        Pour partager des ressources concrètes, vous inspirer, et surtout vous accompagner sur le chemin de la croissance.
-      </p>
-
-      <div class="text-center mt-8">
-        <a
-          href="https://TON-LIEN-CALENDLY-OU-AUTRE"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-block font-secondary font-semibold text-primary-dark-blue bg-gray-200 px-5 py-3 rounded transition duration-300 hover:bg-accent-copper hover:text-white text-lg"
-        >
-          Discutons ensemble de vos objectifs
-        </a>
-      </div>
-
-    </div>
-  </section>
-</BaseLayout>
+<EntryLayout entry={aboutEntry} />
