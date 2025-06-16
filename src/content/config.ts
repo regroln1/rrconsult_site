@@ -1,9 +1,6 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
-// May also need to update /src/types/index.d.ts when updating this file
-// When updating the set of searchable collections, update collectionList in /src/pages/search.astro
-
 const searchable = z.object({
   title: z.string(),
   description: z.string().optional(),
@@ -58,10 +55,23 @@ const terms = defineCollection({
   schema: searchable,
 });
 
+// Add missing collections for other pages
+const ressources = defineCollection({
+  loader: glob({ pattern: "-index.{md,mdx}", base: "./src/content/ressources" }),
+  schema: searchable,
+});
+
+const laMethodeAia = defineCollection({
+  loader: glob({ pattern: "-index.{md,mdx}", base: "./src/content/la-methode-aia" }),
+  schema: searchable,
+});
+
 // Export collections
 export const collections = {
   about,
   blog,
   home,
   terms,
+  ressources,
+  "la-methode-aia": laMethodeAia,
 };

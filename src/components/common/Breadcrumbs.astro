@@ -3,10 +3,20 @@ import { lowerHumanize } from "@lib/textConverter";
 
 const { className }: { className?: string } = Astro.props;
 
+// French translations
+const translations = {
+  "home": "Accueil",
+  "about": "À propos", 
+  "blog": "Blog",
+  "contact": "Contact",
+  "ressources": "Ressources",
+  "la-methode-aia": "La méthode AIA"
+};
+
 const paths = Astro.url.pathname.split("/").filter((x) => x);
 let parts = [
   {
-    label: "Home",
+    label: "Accueil",
     href: "/",
     "aria-label": Astro.url.pathname === "/" ? "page" : undefined,
   },
@@ -14,12 +24,14 @@ let parts = [
 
 paths.forEach((label: string, i: number) => {
   const href = `/${paths.slice(0, i + 1).join("/")}`;
-  label !== "page" &&
+  if (label !== "page") {
+    const translatedLabel = translations[label] || lowerHumanize(label.replace(/[-_]/g, " ")) || "";
     parts.push({
-      label: lowerHumanize(label.replace(/[-_]/g, " ")) || "",
+      label: translatedLabel,
       href,
       "aria-label": Astro.url.pathname === href ? "page" : undefined,
     });
+  }
 });
 ---
 
@@ -28,7 +40,7 @@ paths.forEach((label: string, i: number) => {
     {
       parts.map(({ label, ...attrs }, index) => (
         <li class="mx-1 capitalize" role="listitem">
-          {index > 0 && <span class="inlin-block mr-1">/</span>}
+          {index > 0 && <span class="inline-block mr-1">/</span>}
           {index !== parts.length - 1 ? (
             <a class="text-txt-p dark:text-darkmode-txt-p" {...attrs}>
               {label}
